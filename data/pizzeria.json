@@ -1,0 +1,55 @@
+{
+  "restaurace": "Pizza Planet",
+  "pizzy": [
+    {
+      "nazev": "Margherita",
+      "cena": 165,
+      "ingredience": ["rajčatová omáčka", "mozzarella", "bazalka"]
+    },
+    {
+      "nazev": "Funghi",
+      "cena": 185,
+      "ingredience": ["rajčatová omáčka", "mozzarella", "žampiony"]
+    },
+    {
+      "nazev": "Prosciutto",
+      "cena": 195,
+      "ingredience": ["rajčatová omáčka", "mozzarella", "šunka"]
+    },
+    {
+      "nazev": "Quattro Formaggi",
+      "cena": 215,
+      "ingredience": ["smetanový základ", "mozzarella", "gorgonzola", "emmental", "parmezán"]
+    },
+    {
+      "nazev": "Hawaii",
+      "cena": 205,
+      "ingredience": ["rajčatová omáčka", "mozzarella", "šunka", "ananas"]
+    },
+    {
+      "nazev": "Salami",
+      "cena": 195,
+      "ingredience": ["rajčatová omáčka", "mozzarella", "pikantní salám"]
+    },
+    {
+      "nazev": "Vegetariana",
+      "cena": 185,
+      "ingredience": ["rajčatová omáčka", "mozzarella", "paprika", "kukuřice", "olivy", "žampiony"]
+    },
+    {
+      "nazev": "Capricciosa",
+      "cena": 205,
+      "ingredience": ["rajčatová omáčka", "mozzarella", "šunka", "žampiony", "artyčoky", "olivy"]
+    },
+    {
+      "nazev": "Diavola",
+      "cena": 215,
+      "ingredience": ["rajčatová omáčka", "mozzarella", "pikantní salám", "chilli papričky"]
+    },
+    {
+      "nazev": "Tonno",
+      "cena": 210,
+      "ingredience": ["rajčatová omáčka", "mozzarella", "tuňák", "cibule"]
+    }
+  ]
+}

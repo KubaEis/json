@@ -1,0 +1,18 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Anna Nováková",
+      "age": 18,
+      "class": "4.A",
+      "hobbies": ["čtení", "tanec"]
+    },
+    {
+      "id": 2,
+      "name": "Tomáš Dvořák",
+      "age": 17,
+      "class": "3.B",
+      "hobbies": ["fotbal", "programování"]
+    }
+  ]
+}
