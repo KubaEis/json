@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import org.json.JSONArray;
@@ -16,6 +18,12 @@ public class Main {
         JSONObject root = new JSONObject(obsah);
         JSONArray pizzy = root.getJSONArray("pizzy");
 
+        List<JSONObject> list = new ArrayList<>();
+        for(int i = 0; i < pizzy.length(); i++) {
+            list.add(pizzy.getJSONObject(i));
+        }
+
+
         boolean beh = true;
         while (beh) {
             System.out.println("\n-------MENU-------");
@@ -23,7 +31,10 @@ public class Main {
             System.out.println("2. nejlevnejsi pizza");
             System.out.println("3. nejdrazsi pizza");
             System.out.println("4. prumer cena");
-            System.out.println("5. konec");
+            System.out.println("5. pizzy v cenovem rozmezi");
+            System.out.println("6. pizzy s vybranou ingredienci");
+            System.out.println("7. pizzy od nejlevnejsi po nejdrazsi");
+            System.out.println("8. konec");
             System.out.print("Vase volba: ");
 
             int vyber = sc.nextInt();
@@ -66,11 +77,79 @@ public class Main {
                         soucet += pizzy.getJSONObject(i).getInt("cena");
                     }
                     double prumer = (double) soucet / pizzy.length();
-                    System.out.printf("Prumer cen: %.2f Kč%n", prumer);
+                    System.out.printf("Prumer cen: "+ prumer);
                     break;
                 case 5:
-                    beh = false;
-                    System.out.println("Konec programu.");
+                    System.out.println("Nizsi cena: ");
+                    int n = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Vyssi cena: ");
+                    int v = sc.nextInt();
+                    sc.nextLine();
+                    if (n>v){
+                        int i = n;
+                        n = v;
+                        v = i;
+                    }
+                    for (int i = 0; i < pizzy.length(); i++) {
+                        JSONObject pizza = pizzy.getJSONObject(i);
+                        if (pizza.getInt("cena") > n && pizza.getInt("cena") < v) {
+                            int cena = pizza.getInt("cena");
+                            String jmeno = pizza.getString("nazev");
+                            System.out.println(jmeno + " cena: " + cena + " Kč");
+                        }
+                    }
+                    break;
+                case 6:
+                    System.out.println("Ingredience: ");
+                    String ingredience = sc.nextLine();
+                    for (int i = 0; i < pizzy.length(); i++) {
+                        JSONObject pizza = pizzy.getJSONObject(i);
+                        if (pizza.get("ingredience").toString().contains(ingredience)) {
+                            int cena = pizza.getInt("cena");
+                            String jmeno = pizza.getString("nazev");
+                            System.out.println(jmeno + " cena: " + cena + " Kč");
+                        }
+                    }
+                    break;
+                case 7:
+
+                    String jmeno = "";
+                    int cena = Integer.MAX_VALUE;
+                    for(int j = 0; j < list.size(); j++) {
+                        JSONObject pizza = list.get(j);
+                        for (int i = 0; i < list.size(); i++) {
+                            if (pizza.getInt("cena") < cena) {
+                                    nejlC = pizza.getInt("cena");
+                                    nejlevnejsiJmeno = pizza.getString("nazev");
+                            }
+                        }
+                        System.out.println(pizza.getString("nazev") + " cena: " + pizza.getInt("cena") + " Kč");
+                        list.remove(j);
+                    }
+                    /*
+                    String jmeno = "";
+                    int cena = Integer.MAX_VALUE;
+                    for (int i = 0; i < pizzy.length(); i++) {
+                        JSONObject pizza = pizzy.getJSONObject(i);
+                        if (pizza.getInt("cena") < cena) {
+                            cena = pizza.getInt("cena");
+                            jmeno = pizza.getString("nazev");
+                        }
+                    }
+                    System.out.println(jmeno + " cena: " + cena + " Kč");
+                    int c = Integer.MAX_VALUE;
+                    for(int i = 0; i < pizzy.length(); i++){
+                        for (int j = 0; j < pizzy.length(); j++) {
+                            JSONObject pizza = pizzy.getJSONObject(i);
+                            if (pizza.getInt("cena") > cena && pizza.getInt("cena") < c) {
+                                c = pizza.getInt("cena");
+                                jmeno = pizza.getString("nazev");
+                            }
+                        }
+                        cena = c;
+                        System.out.println(jmeno + " cena: " + cena + " Kč");
+                    }*/
                     break;
                 default:
                     System.out.println("Neplatna volba, zkuste to znovu.");

@@ -2,14 +2,14 @@
   "restaurace": "Pizza Planet",
   "pizzy": [
     {
-      "nazev": "Margherita",
-      "cena": 165,
-      "ingredience": ["rajčatová omáčka", "mozzarella", "bazalka"]
-    },
-    {
       "nazev": "Funghi",
       "cena": 185,
       "ingredience": ["rajčatová omáčka", "mozzarella", "žampiony"]
+    },
+    {
+      "nazev": "Margherita",
+      "cena": 165,
+      "ingredience": ["rajčatová omáčka", "mozzarella", "bazalka"]
     },
     {
       "nazev": "Prosciutto",
